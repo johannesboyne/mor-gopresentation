@@ -13,11 +13,11 @@ func main() {
 		"http://google.com",
 	}
 
-	for x := range urls {
-		go callURL(urls[x], response)
+	for _, url := range urls {
+		go callURL(url, response)
 	}
 	for i := 0; i < len(urls); i++ {
-		fmt.Println("response from: " + <-response)
+		fmt.Println("response from " + <-response)
 	}
 }
 
